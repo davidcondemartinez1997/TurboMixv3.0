@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Alimento.cs" />
     <Compile Include="BasculaService.cs" />
+    <Compile Include="RecetaRepositorio.cs" />
     <Compile Include="CocinaService.cs" />
     <Compile Include="ComprobadorDeIngredientesService.cs" />
     <Compile Include="ComprobadorDePesoService.cs" />

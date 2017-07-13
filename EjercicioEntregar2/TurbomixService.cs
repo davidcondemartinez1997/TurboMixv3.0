@@ -26,5 +26,11 @@ namespace EjercicioEntregar2
             return new Plato(mAlimento1, mAlimento2);
         }
 
+        public void GuardarReceta(Alimento mAlimento1, Alimento mAlimento2)
+        {
+            RecetaRepositorio recetaRepositorio = new RecetaRepositorio();
+            recetaRepositorio.addReceta(mAlimento1, mAlimento2);
+        }
+
     }
 }
