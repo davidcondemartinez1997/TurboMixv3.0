@@ -7,11 +7,16 @@ namespace EjercicioEntregar2
 {
     public class RecetaService : IRecetaService
     {
-        public void GuardarReceta(Alimento mAlimento1, Alimento mAlimento2)
+        private IRecetaRepository recetaRepository;
+
+        public RecetaService(IRecetaRepository _recetaRepository)
         {
-            IRecetaRepository recetaRepository = new RecetaRepository();
-            Receta receta = new Receta(mAlimento1.Nombre, mAlimento2.Nombre, mAlimento1.Peso, mAlimento2.Peso);
-            recetaRepository.addReceta(receta);
+            this.recetaRepository = _recetaRepository;
+        }
+
+        public void Guardar(Receta receta) 
+        {
+            recetaRepository.add(receta);
 
         }
     }

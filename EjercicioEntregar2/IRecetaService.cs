@@ -2,6 +2,6 @@
 {
     public interface IRecetaService
     {
-        void GuardarReceta(Alimento mAlimento1, Alimento mAlimento2);
+        void Guardar(Receta receta);
     }
 }

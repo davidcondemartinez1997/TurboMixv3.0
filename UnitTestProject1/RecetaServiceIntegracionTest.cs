@@ -9,19 +9,17 @@ namespace UnitTestProject1
 {
 
     [TestClass]
-    public class RecetaServiceTest
+    public class RecetaServiceIntegracionTest
     {
 
         [TestMethod]
         public void TestGuardarReceta()
         {
-            var mockRecetaRepository = new Mock<IRecetaRepository>();
             Receta receta = new Receta();
+            IRecetaRepository recetaRepository = new RecetaRepository();
+            IRecetaService sut = new RecetaService(recetaRepository);
 
-            IRecetaService sut = new RecetaService(mockRecetaRepository.Object);
             sut.Guardar(receta);
-
-            mockRecetaRepository.Verify(recetaRepository => recetaRepository.add(It.IsAny<Receta>()), Times.Once);
         }
     }
 }

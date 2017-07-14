@@ -8,6 +8,6 @@ namespace EjercicioEntregar2
 {
     public interface IRecetaRepository
     {
-        void addReceta(Receta receta);
+        void add(Receta receta);
     }
 }
