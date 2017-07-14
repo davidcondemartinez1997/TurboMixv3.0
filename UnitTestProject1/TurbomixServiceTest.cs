@@ -11,8 +11,9 @@ namespace UnitTestProject1
         [TestMethod]
         public void TestPrepararPlato2()
         {
-            var mockBasculaService = new Mock<IBascula>();
-            var mockCocinaService = new Mock<ICocina>();
+            var mockBasculaService = new Mock<IBasculaService>();
+            var mockCocinaService = new Mock<ICocinaService>();
+            var mockRecetaRepository = new Mock<IRecetaRepository>();
 
             mockBasculaService.Setup(bascula => bascula.Pesar(It.IsAny<Alimento>())).Returns((Alimento p) => p.Peso);
             //mockBasculaService.Setup(bascula => bascula.Pesar(It.IsAny<Alimento>())).Returns(1.5F);
@@ -24,8 +25,9 @@ namespace UnitTestProject1
                     p2.Calentado = false;
                 });
 
-            IBascula basculaService = mockBasculaService.Object;
-            ICocina cocinaService = mockCocinaService.Object;
+            IBasculaService basculaService = mockBasculaService.Object;
+            ICocinaService cocinaService = mockCocinaService.Object;
+            IRecetaRepository recetaRepository = mockRecetaRepository.Object;
 
             TurbomixService sut = new TurbomixService(basculaService, cocinaService);
             Alimento mAlimento1 = new Alimento();

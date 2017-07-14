@@ -10,8 +10,8 @@ namespace UnitTestProject1
         [TestMethod]
         public void TestPrepararPlato()
         {
-            IBascula basculaService = new BasculaService();
-            ICocina cocinaService = new CocinaService();
+            IBasculaService basculaService = new BasculaService();
+            ICocinaService cocinaService = new CocinaService();
 
             TurbomixService sut = new TurbomixService(basculaService, cocinaService);
             Alimento mAlimento1 = new Alimento();

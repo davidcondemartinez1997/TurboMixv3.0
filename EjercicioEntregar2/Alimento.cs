@@ -24,6 +24,13 @@ namespace EjercicioEntregar2
             this.Calentado = _Calentado;
         }
 
+        public Alimento(string _Nombre, float _Peso, bool _Calentado)
+        {
+            this.Nombre = _Nombre;
+            this.Peso = _Peso;
+            this.Calentado = _Calentado;
+        }
+
         public override bool Equals(object obj)
         {
             if (obj == null)

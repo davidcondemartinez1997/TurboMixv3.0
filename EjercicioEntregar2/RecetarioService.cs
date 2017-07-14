@@ -14,8 +14,8 @@ namespace EjercicioEntregar2
             ITermometro termometro = new Termometro();
             ComprobadorDeIngredientesService comprobadorDeIngredientes = new ComprobadorDeIngredientesService();
             ComprobadorDePesoService comprobadorDePesoService = new ComprobadorDePesoService();
-            IBascula bascula = new BasculaService();
-            ICocina cocina = new CocinaService();
+            IBasculaService bascula = new BasculaService();
+            ICocinaService cocina = new CocinaService();
             TurbomixService turbomix = new TurbomixService(bascula, cocina);
 
             // Comprobar que son los ingredientes correctos.

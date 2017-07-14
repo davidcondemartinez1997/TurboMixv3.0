@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace EjercicioEntregar2
 {
-    public class BasculaService : IBasculaService
+    public interface IRecetaRepository
     {
-        public float Pesar(Alimento mAlimento)
-        {
-            return mAlimento.Peso;
-        }
+        void addReceta(Receta receta);
     }
 }

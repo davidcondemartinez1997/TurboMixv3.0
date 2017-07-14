@@ -1,19 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace EjercicioEntregar2
 {
-    public class RecetaRepositorio
+    public class RecetaService : IRecetaService
     {
-        private static List<Receta> repositorio;
-
-        public void addReceta(Alimento mAlimento1, Alimento mAlimento2)
+        public void GuardarReceta(Alimento mAlimento1, Alimento mAlimento2)
         {
+            IRecetaRepository recetaRepository = new RecetaRepository();
             Receta receta = new Receta(mAlimento1.Nombre, mAlimento2.Nombre, mAlimento1.Peso, mAlimento2.Peso);
-            repositorio.Add(receta);
+            recetaRepository.addReceta(receta);
+
         }
     }
 }

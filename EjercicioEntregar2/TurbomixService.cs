@@ -8,28 +8,22 @@ namespace EjercicioEntregar2
 {
     public class TurbomixService
     {
-        public IBascula Bascula { get; set; }
-        public ICocina Cocina { get; set; }
+        public IBasculaService basculaService { get; set; }
+        public ICocinaService cocinaService { get; set; }
 
-        public TurbomixService(IBascula _Bascula, ICocina _Cocina)
+        public TurbomixService(IBasculaService _Bascula, ICocinaService _Cocina)
         {
-            this.Bascula = _Bascula;
-            this.Cocina = _Cocina;
+            this.basculaService = _Bascula;
+            this.cocinaService = _Cocina;
         }
 
         public Plato PrepararPlato(Alimento mAlimento1, Alimento mAlimento2)
         {
-            float Peso1 = Bascula.Pesar(mAlimento1);
-            float Peso2 = Bascula.Pesar(mAlimento2);
-            Cocina.Calentar(mAlimento1, mAlimento2);
+            float Peso1 = basculaService.Pesar(mAlimento1);
+            float Peso2 = basculaService.Pesar(mAlimento2);
+            cocinaService.Calentar(mAlimento1, mAlimento2);
 
             return new Plato(mAlimento1, mAlimento2);
-        }
-
-        public void GuardarReceta(Alimento mAlimento1, Alimento mAlimento2)
-        {
-            RecetaRepositorio recetaRepositorio = new RecetaRepositorio();
-            recetaRepositorio.addReceta(mAlimento1, mAlimento2);
         }
 
     }
