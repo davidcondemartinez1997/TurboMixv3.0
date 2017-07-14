@@ -10,9 +10,29 @@ namespace EjercicioEntregar2
     {
         private static IList<Receta> repositorio = new List<Receta>();
 
-        public void add(Receta receta)
+        public void Add(Receta receta)
         {
             repositorio.Add(receta);
+        }
+
+        public IList<Receta> Lee()
+        {
+            return repositorio;
+        }
+
+        public Receta Lee(string Nombre)
+        {
+            return new Receta();
+        }
+
+        public void Update(Receta receta)
+        {
+
+        }
+
+        public void Delete(string Nombre)
+        {
+
         }
     }
 }

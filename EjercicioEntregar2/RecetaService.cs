@@ -9,6 +9,7 @@ namespace EjercicioEntregar2
     {
         private IRecetaRepository recetaRepository;
 
+
         public RecetaService(IRecetaRepository _recetaRepository)
         {
             this.recetaRepository = _recetaRepository;
@@ -16,7 +17,26 @@ namespace EjercicioEntregar2
 
         public void Guardar(Receta receta) 
         {
-            recetaRepository.add(receta);
+            recetaRepository.Add(receta);
+        }
+
+        public void Lee(string Nombre)
+        {
+            recetaRepository.Lee(Nombre);
+        }
+
+        public void Lista()
+        {
+            recetaRepository.Lee();
+        }
+
+        public void Update(Receta receta)
+        {
+            //TODO
+        }
+
+        public void Delete(string Nombre)
+        {
 
         }
     }

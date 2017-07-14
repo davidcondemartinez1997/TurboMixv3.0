@@ -11,15 +11,47 @@ namespace UnitTestProject1
     [TestClass]
     public class RecetaServiceIntegracionTest
     {
+        private IRecetaRepository recetaRepository;
+        private IRecetaService sut;
 
+        [TestInitialize]
+        public void Init()
+        {
+            recetaRepository = new RecetaRepository();
+            sut = new RecetaService(recetaRepository);
+        }
         [TestMethod]
-        public void TestGuardarReceta()
+        public void TestGuardar()
         {
             Receta receta = new Receta();
-            IRecetaRepository recetaRepository = new RecetaRepository();
-            IRecetaService sut = new RecetaService(recetaRepository);
 
             sut.Guardar(receta);
+        }
+
+        [TestMethod]
+        public void TestLeer()
+        {
+            sut.Lee("Chocolate con pan");
+        }
+
+        [TestMethod]
+        public void TestListar()
+        {
+            sut.Lista();
+        }
+
+        [TestMethod]
+        public void TestUpdate()
+        {
+            Receta receta = new Receta();
+
+            sut.Guardar(receta);
+        }
+
+        [TestMethod]
+        public void TestDelete()
+        {
+            sut.Delete("Chocolate con pan");
         }
     }
 }

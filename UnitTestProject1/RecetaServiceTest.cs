@@ -13,7 +13,7 @@ namespace UnitTestProject1
     {
 
         [TestMethod]
-        public void TestGuardarReceta()
+        public void TestGuardar()
         {
             var mockRecetaRepository = new Mock<IRecetaRepository>();
             Receta receta = new Receta();
@@ -21,7 +21,11 @@ namespace UnitTestProject1
             IRecetaService sut = new RecetaService(mockRecetaRepository.Object);
             sut.Guardar(receta);
 
-            mockRecetaRepository.Verify(recetaRepository => recetaRepository.add(It.IsAny<Receta>()), Times.Once);
+            mockRecetaRepository.Verify(recetaRepository => recetaRepository.Add(It.IsAny<Receta>()), Times.Once);
         }
+
+
+
+
     }
 }
