@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using EjercicioEntregar2;
+using Microsoft.Practices.Unity;
 
 namespace UnitTestProject1
 {
@@ -10,10 +11,15 @@ namespace UnitTestProject1
         [TestMethod]
         public void TestPrepararPlato()
         {
-            IBasculaService basculaService = new BasculaService();
-            ICocinaService cocinaService = new CocinaService();
+            IUnityContainer container = new UnityContainer();
+            container.RegisterType<IBasculaService, BasculaService>();
+            container.RegisterType<ICocinaService, CocinaService>();
+            container.RegisterType<ITurbomixService, TurbomixService>();
 
-            TurbomixService sut = new TurbomixService(basculaService, cocinaService);
+            IBasculaService basculaService = container.Resolve<IBasculaService>();
+            ICocinaService cocinaService = container.Resolve<ICocinaService>();
+            ITurbomixService sut = container.Resolve<ITurbomixService>();
+
             Alimento mAlimento1 = new Alimento();
             mAlimento1.Nombre = "Curry";
             mAlimento1.Peso = 1.5F;

@@ -44,6 +44,7 @@
     <Compile Include="BasculaService.cs" />
     <Compile Include="IRecetaRepository.cs" />
     <Compile Include="IRecetaService.cs" />
+    <Compile Include="ITurbomixService.cs" />
     <Compile Include="RecetaRepository.cs" />
     <Compile Include="CocinaService.cs" />
     <Compile Include="ComprobadorDeIngredientesService.cs" />

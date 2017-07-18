@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using EjercicioEntregar2;
 using Moq;
+using Microsoft.Practices.Unity;
 
 namespace UnitTestProject1
 {
@@ -17,9 +18,13 @@ namespace UnitTestProject1
         [TestInitialize]
         public void Init()
         {
-            recetaRepository = new RecetaRepository();
-            sut = new RecetaService(recetaRepository);
+            IUnityContainer container = new UnityContainer();
+            container.RegisterType<IRecetaService, RecetaService>();
+            container.RegisterType<IRecetaRepository, RecetaRepository>();
+            sut = container.Resolve<IRecetaService>();
+            recetaRepository = container.Resolve<IRecetaRepository>();
         }
+
         [TestMethod]
         public void TestGuardar()
         {
